@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gianra Speaking Lab</title>
+<meta name="description" content="Gianra Speaking Lab: Speak with Impact. Public speaking coaching 1-on-1 untuk mahasiswa, job seeker, dan profesional muda. Online seluruh Indonesia, offline di Bandung. Booking lewat WhatsApp.">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gianra Speaking Lab">
+<meta property="og:description" content="Gianra Speaking Lab: Speak with Impact. Public speaking coaching 1-on-1 untuk mahasiswa, job seeker, dan profesional muda. Online seluruh Indonesia, offline di Bandung. Booking lewat WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111111'/%3E%3Crect x='8' y='8' width='16' height='16' fill='%23F20D19'/%3E%3C/svg%3E">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+
+<!-- =====================================================================
+     PENGATURAN UTAMA — EDIT DI SINI SAJA
+     Semua yang sering diganti ada di blok ini.
+     ===================================================================== -->
+<script>
+  // Nomor WhatsApp: kode negara + nomor, tanpa +, spasi, atau strip.
+  var WHATSAPP_NUMBER = "628882010774";
+
+  // Nama coach (dipakai di pesan WhatsApp dan bagian "Tentang").
+  var COACH_NAME = "Irgi";
+
+  // Link Instagram. Kosongkan ("") untuk menyembunyikan tautannya di footer.
+  // Contoh: "https://www.instagram.com/usernamekamu"
+  var INSTAGRAM_URL = "";
+
+  // Foto. Kosongkan ("") untuk memakai kotak placeholder.
+  // Isi dengan nama file foto yang sudah diupload ke folder yang sama,
+  // contoh: "foto-hero.jpg". Foto otomatis ditampilkan hitam-putih.
+  var HERO_PHOTO = "";
+  var COACH_PHOTO = "foto-coach.jpg";
+
+  // Harga (tampil di bagian Harga).
+  var PRICE_ONLINE = "Rp75.000";
+  var PRICE_OFFLINE = "Rp125.000";
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+
+<style>
+  :root {
+    /* LAYOUT: grid Swiss 12 kolom, asimetris. Label bagian di rel kiri (3 kolom),
+       isi di kanan (9 kolom). Garis hitam tebal membuka tiap bagian. */
+    --black: #111111;
+    --white: #FFFFFF;
+    --red: #F20D19;
+    --gray: #F3F3F3;
+    --rule: #C9C9C9;
+    --muted: #555555;
+    --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--black);
+    background: var(--white);
+    -webkit-text-size-adjust: 100%;
+    overflow-wrap: break-word;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    background: var(--white);
+    z-index: 60;
+  }
+  h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+  ul, ol { padding: 0; list-style: none; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  @media (min-width: 720px) {
+    .wrap {
+      padding-left: max(32px, env(safe-area-inset-left, 0px));
+      padding-right: max(32px, env(safe-area-inset-right, 0px));
+    }
+  }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--black);
+    outline-offset: 3px;
+  }
+  .on-dark a:focus-visible, .on-dark button:focus-visible { outline-color: var(--white); }
+
+  .skip {
+    position: absolute; left: 16px; top: -100px; z-index: 100;
+    background: var(--black); color: var(--white);
+    padding: 10px 16px; font-weight: 600; text-decoration: none;
+  }
+  .skip:focus { top: calc(env(safe-area-inset-top, 0px) + 8px); }
+
+  /* ---------- Tombol ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 52px; padding: 0 28px;
+    border: 2px solid var(--black);
+    font: 700 1rem/1.2 var(--font);
+    text-decoration: none; text-align: center; cursor: pointer;
+    transition: background-color .15s, color .15s, border-color .15s;
+  }
+  .btn-red { background: var(--red); border-color: var(--red); color: var(--white); }
+  .btn-red:hover { background: var(--black); border-color: var(--black); }
+  .btn-line { background: transparent; color: var(--black); }
+  .btn-line:hover { background: var(--black); color: var(--white); }
+  .btn-block { width: 100%; }
+
+  /* ---------- Navigasi ---------- */
+  .site-header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+    background: var(--white); border-bottom: 1px solid var(--rule);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+  .logo { display: flex; flex-direction: column; line-height: 1.15; font-weight: 800; font-size: 1.0625rem; letter-spacing: -.02em; text-decoration: none; color: var(--black); }
+  .logo .dot { color: var(--red); }
+  .logo small { margin-top: 2px; font-size: .625rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .menu-btn {
+    min-height: 44px; padding: 0 16px;
+    border: 2px solid var(--black); background: var(--white); color: var(--black);
+    font: 600 .8125rem var(--font); letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+  }
+  .nav-menu {
+    display: none; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--white); border-bottom: 2px solid var(--black);
+    padding: 8px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px));
+  }
+  .nav-menu.open { display: flex; }
+  .nav-menu a.link {
+    display: block; padding: 14px 0; border-bottom: 1px solid var(--rule);
+    font-weight: 600; color: var(--black); text-decoration: none;
+  }
+  .nav-cta { padding-top: 16px; }
+  .nav-cta .btn { width: 100%; min-height: 48px; }
+
+  @media (min-width: 860px) {
+    .menu-btn { display: none; }
+    .nav-menu {
+      display: flex; flex-direction: row; align-items: center; gap: 32px;
+      position: static; padding: 0; border: 0; background: transparent;
+    }
+    .nav-menu a.link { padding: 6px 0; border: 0; font-size: .9375rem; font-weight: 500; }
+    .nav-menu a.link:hover { box-shadow: 0 2px 0 var(--red); }
+    .nav-cta { padding: 0; }
+    .nav-cta .btn { width: auto; min-height: 44px; padding: 0 22px; font-size: .9375rem; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-block: 40px 0; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .eyebrow .sq { width: 10px; height: 10px; background: var(--red); flex: none; }
+  .hero h1 {
+    margin-top: 24px;
+    font-size: clamp(2.4rem, 7.4vw, 4.5rem);
+    font-weight: 800; line-height: 1.02; letter-spacing: -.03em;
+    text-wrap: balance;
+  }
+  .hl { color: var(--red); }
+  .lead { margin-top: 24px; max-width: 34em; font-size: 1.125rem; color: var(--muted); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .cta-row .btn { flex: 1 1 220px; }
+
+  .hero-visual {
+    position: relative; overflow: hidden; max-width: 100%;
+    aspect-ratio: 4 / 3; background: var(--black);
+  }
+  .hero-visual::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,.14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,.14) 1px, transparent 1px);
+    background-size: 20% 25%;
+  }
+  .hero-visual .ph-mark { position: absolute; top: 16px; left: 16px; width: 14px; height: 14px; background: var(--red); }
+  .hero-visual .ph-cap {
+    position: absolute; left: 16px; bottom: 16px; right: 16px;
+    color: var(--white); font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  }
+  .hero-visual .ph-cap small { display: block; margin-top: 4px; font-weight: 400; letter-spacing: .02em; text-transform: none; color: #BDBDBD; }
+  .hero-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+
+  .modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 48px; border-top: 2px solid var(--black); }
+  .modes div { padding: 16px 0 0; }
+  .modes dt { font-weight: 700; font-size: 1rem; }
+  .modes dd { color: var(--muted); font-size: .9375rem; }
+
+  @media (min-width: 860px) {
+    .hero { padding-block: 72px 0; }
+    .hero-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: end; }
+    .hero h1 { font-size: clamp(3rem, 6.4vw, 5.25rem); }
+    .cta-row .btn { flex: 0 1 auto; }
+    .hero-visual { aspect-ratio: 4 / 5; }
+    .modes { margin-top: 64px; }
+  }
+
+  /* ---------- Bagian umum ---------- */
+  .section { padding-block: 72px 0; }
+  .sec-grid {
+    display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 28px; column-gap: 24px;
+    border-top: 2px solid var(--black); padding-top: 20px;
+  }
+  .sec-label {
+    font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .sec-label b { color: var(--red); font-weight: 700; margin-right: 8px; }
+  .sec-body { min-width: 0; }
+  h2 {
+    font-size: clamp(1.75rem, 4.2vw, 3rem);
+    font-weight: 700; line-height: 1.1; letter-spacing: -.02em; text-wrap: balance;
+  }
+  .sec-body > h2 + * { margin-top: 40px; }
+  @media (min-width: 860px) {
+    .section { padding-block: 112px 0; }
+    .sec-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .sec-label { grid-column: 1 / 4; padding-top: 6px; }
+    .sec-body { grid-column: 4 / -1; }
+  }
+
+  /* ---------- Masalah ---------- */
+  .problems { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 32px; }
+  .problems li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 20px 0 28px; border-top: 1px solid var(--rule); }
+  .problems .num { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--red); font-variant-numeric: tabular-nums; }
+  .problems p { font-size: 1.125rem; font-weight: 600; line-height: 1.4; }
+  @media (min-width: 640px) { .problems { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* ---------- Metode ---------- */
+  .steps { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 32px; }
+  .steps li { padding: 20px 0 32px; border-top: 1px solid var(--rule); }
+  .steps .num { display: block; font-size: 3rem; font-weight: 800; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .steps h3 { margin-top: 20px; font-size: 1.25rem; font-weight: 600; }
+  .steps p { margin-top: 8px; color: var(--muted); }
+  .note { margin-top: 24px; padding: 20px 24px; background: var(--gray); color: var(--black); }
+  .note strong { font-weight: 600; }
+  @media (min-width: 860px) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+  /* ---------- Isi sesi ---------- */
+  .checks li { display: flex; gap: 16px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--rule); font-size: 1.0625rem; }
+  .checks li:last-child { border-bottom: 1px solid var(--rule); }
+  .checks .tick { width: 10px; height: 10px; background: var(--red); flex: none; transform: translateY(1px); }
+
+  /* ---------- Harga ---------- */
+  .plans { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .plan { display: flex; flex-direction: column; padding: 28px 24px; background: var(--gray); border-top: 2px solid var(--black); min-width: 0; }
+  .plan .kicker { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .plan h3 { margin-top: 8px; font-size: 1.5rem; font-weight: 700; letter-spacing: -.01em; }
+  .price-label { margin-top: 28px; font-size: .8125rem; color: var(--muted); }
+  .price { font-size: clamp(2.25rem, 6vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .plan dl { margin-top: 24px; }
+  .plan dl div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--rule); }
+  .plan dt { color: var(--muted); font-size: .9375rem; }
+  .plan dd { font-weight: 600; text-align: right; }
+  .plan .inc { margin-top: 4px; padding: 12px 0 24px; border-top: 1px solid var(--rule); font-size: .9375rem; color: var(--muted); }
+  .plan .btn { margin-top: auto; }
+  .fine { margin-top: 20px; font-size: .875rem; color: var(--muted); max-width: 52em; }
+  @media (min-width: 760px) { .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* ---------- Tentang ---------- */
+  .about { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .coach-photo { position: relative; overflow: hidden; max-width: 100%; aspect-ratio: 4 / 5; background: var(--gray); }
+  .coach-photo .ph-cap { position: absolute; left: 16px; bottom: 16px; right: 16px; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .coach-photo .ph-cap small { display: block; margin-top: 4px; font-weight: 400; letter-spacing: .02em; text-transform: none; }
+  .coach-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; filter: grayscale(1) contrast(1.05); }
+  .coach-photo.has-photo { aspect-ratio: auto; max-width: 340px; background: transparent; }
+  .coach-photo.has-photo img { position: static; display: block; width: 100%; height: auto; object-fit: contain; }
+  .about-copy > p:first-child { font-size: 1.125rem; }
+  .coach-card { margin-top: 32px; padding-top: 16px; border-top: 2px solid var(--black); }
+  .coach-card .name { font-size: 1.5rem; font-weight: 700; letter-spacing: -.01em; }
+  .coach-card .role { color: var(--muted); font-size: .9375rem; }
+  .coach-card .bio { margin-top: 12px; color: var(--muted); }
+  @media (min-width: 720px) { .about { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; } }
+
+  /* ---------- FAQ ---------- */
+  .faq details { border-top: 1px solid var(--rule); }
+  .faq details:last-child { border-bottom: 1px solid var(--rule); }
+  .faq summary {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 20px 0; font-size: 1.0625rem; font-weight: 600; line-height: 1.4;
+    cursor: pointer; list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; flex: none; font-size: 1.75rem; font-weight: 400; line-height: 1; color: var(--red); }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq .ans { padding: 0 0 24px; max-width: 60ch; color: var(--muted); }
+  .faq .todo { color: var(--black); font-weight: 500; }
+
+  /* ---------- CTA akhir + footer ---------- */
+  .final { margin-top: 112px; padding-block: 72px 56px; background: var(--black); color: var(--white); }
+  .final-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .final h2 { font-size: clamp(2rem, 6vw, 4rem); font-weight: 800; line-height: 1.04; letter-spacing: -.03em; }
+  .final .desc { color: #D6D6D6; font-size: 1.125rem; }
+  .final .btn { margin-top: 24px; width: 100%; }
+  .final .fine { color: #BDBDBD; }
+  @media (min-width: 860px) {
+    .final { padding-block: 96px 72px; }
+    .final-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: end; }
+    .final .btn { width: auto; }
+  }
+  .site-footer { background: var(--black); color: var(--white); padding-block: 0 40px; }
+  .foot { display: flex; flex-wrap: wrap; gap: 24px 48px; padding-top: 28px; border-top: 1px solid #3A3A3A; }
+  .foot > div { min-width: 0; }
+  .foot .brand { font-weight: 800; font-size: 1.0625rem; letter-spacing: -.02em; }
+  .foot .brand .dot { color: var(--red); }
+  .foot p, .foot li { color: #D6D6D6; font-size: .9375rem; }
+  .foot a { color: var(--white); text-underline-offset: 3px; }
+  .foot ul { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+  .copy { width: 100%; color: #9A9A9A; font-size: .8125rem; }
+</style>
+
+</head>
+<body>
+<a class="skip" href="#konten">Lewati ke konten</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="#beranda" aria-label="Gianra Speaking Lab, Speak with Impact. Ke beranda"><span>Gianra Speaking Lab<span class="dot">.</span></span><small>Speak with Impact</small></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+    <nav aria-label="Navigasi utama">
+      <ul class="nav-menu" id="nav-menu">
+        <li><a class="link" href="#beranda">Beranda</a></li>
+        <li><a class="link" href="#tentang">Tentang</a></li>
+        <li><a class="link" href="#metode">Metode</a></li>
+        <li><a class="link" href="#harga">Harga</a></li>
+        <li><a class="link" href="#faq">FAQ</a></li>
+        <li class="nav-cta"><a class="btn btn-red" href="#harga" data-wa="general">Booking Sesi</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="konten">
+
+  <!-- ===== A. HERO ===== -->
+  <section class="hero" id="beranda">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="sq" aria-hidden="true"></span>1-ON-1 PUBLIC SPEAKING COACHING</p>
+          <h1>Punya ide bagus? Sampaikan dengan lebih <span class="hl">meyakinkan.</span></h1>
+          <p class="lead">Latihan public speaking secara personal untuk membantu lo berbicara lebih jelas, terstruktur, dan percaya diri—mulai dari presentasi sampai interview.</p>
+          <div class="cta-row">
+            <a class="btn btn-red" href="#harga" data-wa="general">Booking Sesi</a>
+            <a class="btn btn-line" href="#metode">Lihat Metode Coaching</a>
+          </div>
+        </div>
+        <!-- EDIT FOTO: isi HERO_PHOTO di bagian pengaturan paling atas file ini -->
+        <figure class="hero-visual" id="hero-visual">
+          <span class="ph-mark" aria-hidden="true"></span>
+          <figcaption class="ph-cap">Area foto hitam-putih<small>Ganti lewat HERO_PHOTO</small></figcaption>
+        </figure>
+      </div>
+      <dl class="modes">
+        <div><dt>Online</dt><dd>Seluruh Indonesia</dd></div>
+        <div><dt>Offline</dt><dd>Khusus Bandung</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== C. MASALAH ===== -->
+  <section class="section" id="masalah">
+    <div class="wrap">
+      <div class="sec-grid">
+        <p class="sec-label"><b>01</b>Masalah</p>
+        <div class="sec-body">
+          <h2>Punya sesuatu untuk disampaikan. Tapi sulit menyampaikannya?</h2>
+          <ul class="problems">
+            <li><span class="num">01</span><p>Gugup ketika berbicara di depan orang lain.</p></li>
+            <li><span class="num">02</span><p>Punya ide bagus tetapi bingung menyusunnya.</p></li>
+            <li><span class="num">03</span><p>Berbicara terlalu cepat atau berputar-putar.</p></li>
+            <li><span class="num">04</span><p>Ingin lebih siap menghadapi presentasi dan interview.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== D. METODE ===== -->
+  <section class="section" id="metode">
+    <div class="wrap">
+      <div class="sec-grid">
+        <p class="sec-label"><b>02</b>Metode</p>
+        <div class="sec-body">
+          <h2>Bukan cuma teori. Lo langsung praktik.</h2>
+          <ol class="steps">
+            <li>
+              <span class="num">01</span>
+              <h3>Diagnose</h3>
+              <p>Kita identifikasi kebutuhan dan tantangan utama lo melalui latihan singkat.</p>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <h3>Learn</h3>
+              <p>Pelajari teknik yang relevan dengan tujuan lo, mulai dari menyusun pesan sampai mengatur tempo bicara.</p>
+            </li>
+            <li>
+              <span class="num">03</span>
+              <h3>Practice &amp; Feedback</h3>
+              <p>Praktik langsung, dapat feedback personal, lalu ulangi latihan untuk melihat hal yang perlu diperbaiki.</p>
+            </li>
+          </ol>
+          <p class="note"><strong>Setiap sesi menyesuaikan kebutuhan peserta.</strong> Fokus dan porsi tiap tahap bisa berbeda, tergantung tujuan dan titik awal lo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== E. ISI SESI ===== -->
+  <section class="section" id="isi-sesi">
+    <div class="wrap">
+      <div class="sec-grid">
+        <p class="sec-label"><b>03</b>Isi sesi</p>
+        <div class="sec-body">
+          <h2>Setiap sesi punya arah yang jelas.</h2>
+          <ul class="checks">
+            <li><span class="tick" aria-hidden="true"></span>Sesi coaching 1-on-1.</li>
+            <li><span class="tick" aria-hidden="true"></span>Latihan berbicara secara langsung.</li>
+            <li><span class="tick" aria-hidden="true"></span>Personal Speaking Assessment berdasarkan observasi sesi.</li>
+            <li><span class="tick" aria-hidden="true"></span>PDF Public Speaking Cheat Sheet.</li>
+            <li><span class="tick" aria-hidden="true"></span>Satu kali follow-up check-in dalam tujuh hari, sesuai ketentuan layanan.</li>
+          </ul>
+          <p class="note">Personal Speaking Assessment adalah evaluasi coaching berdasarkan latihan di sesi. Ini bukan tes psikologis dan bukan sertifikasi formal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== F. HARGA ===== -->
+  <section class="section" id="harga">
+    <div class="wrap">
+      <div class="sec-grid">
+        <p class="sec-label"><b>04</b>Harga</p>
+        <div class="sec-body">
+          <h2>Mulai dari satu sesi.</h2>
+          <div class="plans">
+
+            <article class="plan">
+              <p class="kicker">Paket 1</p>
+              <h3>Online Coaching</h3>
+              <p class="price-label">Harga perkenalan</p>
+              <p class="price" data-price="online">Rp75.000</p>
+              <dl>
+                <div><dt>Durasi</dt><dd>60 menit</dd></div>
+                <div><dt>Platform</dt><dd>Google Meet</dd></div>
+              </dl>
+              <p class="inc">Termasuk seluruh fasilitas pada bagian Isi sesi.</p>
+              <a class="btn btn-red btn-block" href="#kontak" data-wa="online">Booking via WhatsApp</a>
+            </article>
+
+            <article class="plan">
+              <p class="kicker">Paket 2</p>
+              <h3>Offline Coaching</h3>
+              <p class="price-label">Harga perkenalan</p>
+              <p class="price" data-price="offline">Rp125.000</p>
+              <dl>
+                <div><dt>Durasi</dt><dd>60 menit</dd></div>
+                <div><dt>Lokasi</dt><dd>Bandung</dd></div>
+              </dl>
+              <p class="inc">Termasuk seluruh fasilitas pada bagian Isi sesi. Biaya transportasi, jika diperlukan, dibicarakan terlebih dahulu.</p>
+              <a class="btn btn-red btn-block" href="#kontak" data-wa="offline">Booking via WhatsApp</a>
+            </article>
+
+          </div>
+          <p class="fine">Tombol di atas hanya membuka percakapan WhatsApp. Jadwal dan pembayaran dikonfirmasi secara manual lewat chat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== G. TENTANG COACH ===== -->
+  <section class="section" id="tentang">
+    <div class="wrap">
+      <div class="sec-grid">
+        <p class="sec-label"><b>05</b>Tentang</p>
+        <div class="sec-body">
+          <h2>Belajar berbicara dengan lebih terarah.</h2>
+          <div class="about">
+            <!-- EDIT FOTO: isi COACH_PHOTO di bagian pengaturan paling atas file ini -->
+            <figure class="coach-photo" id="coach-photo">
+              <figcaption class="ph-cap">Foto coach<small>Ganti lewat COACH_PHOTO</small></figcaption>
+            </figure>
+            <div class="about-copy">
+              <p>Sesi coaching ini dirancang untuk membantu lo mengenali kekuatan komunikasi, memperbaiki cara menyusun pesan, dan berlatih menyampaikan ide secara lebih efektif. Fokusnya bukan menjadi orang lain, tetapi mengembangkan cara bicara yang sesuai dengan diri dan tujuan lo.</p>
+              <div class="coach-card">
+                <p class="name" data-coach>Irgi</p>
+                <p class="role">Coach, Gianra Speaking Lab</p>
+                <!-- EDIT PROFIL: ganti kalimat di bawah dengan profil singkat lo. Jangan tulis gelar atau pengalaman yang belum pasti. -->
+                <p class="bio">Sesi dipandu langsung oleh <span data-coach>Irgi</span>. Satu sesi untuk satu peserta, jadi seluruh waktu dipakai untuk kebutuhan lo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== H. FAQ ===== -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sec-grid">
+        <p class="sec-label"><b>06</b>FAQ</p>
+        <div class="sec-body">
+          <h2>Pertanyaan yang sering muncul.</h2>
+          <div class="faq">
+            <details>
+              <summary>Apakah sesi ini cocok untuk pemula?</summary>
+              <p class="ans">Cocok. Sesi disesuaikan dengan titik awal dan tujuan lo, jadi lo tidak perlu punya pengalaman berbicara di depan umum sebelumnya.</p>
+            </details>
+            <details>
+              <summary>Apakah coaching bisa dilakukan secara online?</summary>
+              <p class="ans">Bisa. Sesi online berdurasi 60 menit lewat Google Meet dan terbuka untuk peserta di seluruh Indonesia.</p>
+            </details>
+            <details>
+              <summary>Apa yang perlu disiapkan sebelum sesi?</summary>
+              <p class="ans">Siapkan tujuan lo, misalnya presentasi, interview, atau menyampaikan sebuah ide. Kalau ada materi yang ingin dilatih, bawa juga. Untuk sesi online, pastikan koneksi internet stabil dan tempat yang cukup tenang.</p>
+            </details>
+            <details>
+              <summary>Apakah saya akan langsung praktik?</summary>
+              <p class="ans">Ya. Sesi berfokus pada latihan langsung, lalu lo mendapat feedback personal dan mengulang latihan.</p>
+            </details>
+            <details>
+              <summary>Bagaimana cara melakukan pembayaran?</summary>
+              <!-- EDIT: tulis metode dan ketentuan pembayaran yang lo tetapkan -->
+              <p class="ans">Pembayaran dikonfirmasi secara manual lewat WhatsApp. <span class="todo">[Tambahkan metode pembayaran di sini.]</span></p>
+            </details>
+            <details>
+              <summary>Apakah sesi bisa dijadwalkan ulang?</summary>
+              <!-- EDIT: tulis ketentuan reschedule yang lo tetapkan -->
+              <p class="ans">Jadwal dibicarakan lewat WhatsApp. <span class="todo">[Tambahkan ketentuan jadwal ulang di sini.]</span></p>
+            </details>
+            <details>
+              <summary>Apakah tersedia sesi offline di Bandung?</summary>
+              <p class="ans">Tersedia. Sesi offline berdurasi 60 menit di Bandung. Lokasi pertemuan dan biaya transportasi, jika diperlukan, dibicarakan terlebih dahulu lewat WhatsApp.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== I. CTA AKHIR ===== -->
+  <section class="final on-dark" id="kontak">
+    <div class="wrap">
+      <div class="final-grid">
+        <h2>Mulai dari cara lo menyampaikan satu ide.</h2>
+        <div>
+          <p class="desc">Ceritakan tujuan lo. Kita tentukan sesi yang paling sesuai dengan kebutuhan lo.</p>
+          <a class="btn btn-red" href="#kontak" data-wa="general">Booking Sesi via WhatsApp</a>
+          <p class="fine">Tombol ini membuka percakapan WhatsApp. Jadwal dan pembayaran dikonfirmasi secara manual.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <p class="brand">Gianra Speaking Lab<span class="dot">.</span></p>
+        <p>Speak with Impact.</p>
+        <p>Online seluruh Indonesia.</p>
+        <p>Offline Bandung.</p>
+      </div>
+      <div>
+        <ul>
+          <li><a href="#kontak" data-wa="general">WhatsApp</a></li>
+          <li><a href="#" id="ig-link" target="_blank" rel="noopener noreferrer" hidden>Instagram</a></li>
+        </ul>
+      </div>
+      <p class="copy">&copy; <span id="year">2026</span> Gianra Speaking Lab.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    "use strict";
+
+    // ---- Tautan WhatsApp: satu fungsi untuk semua tombol ----
+    function normalizeNumber(raw) {
+      var digits = String(raw || "").replace(/\D/g, "");
+      if (digits.indexOf("0") === 0) { digits = "62" + digits.slice(1); }
+      return digits;
+    }
+
+    function buildWhatsAppLink(choice) {
+      var pilihan = choice === "online" ? "Online"
+                  : choice === "offline" ? "Offline"
+                  : "[Online/Offline]";
+      var pesan =
+        "Halo, " + COACH_NAME + "! Saya tertarik dengan Gianra Speaking Lab Public Speaking Coaching. " +
+        "Saya ingin bertanya tentang sesi coaching. " +
+        "Pilihan saya: " + pilihan + ". " +
+        "Tujuan saya mengikuti coaching: [isi tujuan].";
+      return "https://wa.me/" + normalizeNumber(WHATSAPP_NUMBER) + "?text=" + encodeURIComponent(pesan);
+    }
+
+    var waLinks = document.querySelectorAll("[data-wa]");
+    for (var i = 0; i < waLinks.length; i++) {
+      var a = waLinks[i];
+      a.setAttribute("href", buildWhatsAppLink(a.getAttribute("data-wa")));
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener noreferrer");
+    }
+
+    // ---- Isi teks dari pengaturan ----
+    var prices = { online: PRICE_ONLINE, offline: PRICE_OFFLINE };
+    var priceEls = document.querySelectorAll("[data-price]");
+    for (var p = 0; p < priceEls.length; p++) {
+      var key = priceEls[p].getAttribute("data-price");
+      if (prices[key]) { priceEls[p].textContent = prices[key]; }
+    }
+    var nameEls = document.querySelectorAll("[data-coach]");
+    for (var n = 0; n < nameEls.length; n++) { nameEls[n].textContent = COACH_NAME; }
+
+    var yearEl = document.getElementById("year");
+    if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
+    // ---- Instagram ----
+    var ig = document.getElementById("ig-link");
+    if (ig && INSTAGRAM_URL) {
+      ig.setAttribute("href", INSTAGRAM_URL);
+      ig.hidden = false;
+    }
+
+    // ---- Foto (opsional) ----
+    function placePhoto(figId, src, alt) {
+      var fig = document.getElementById(figId);
+      if (!fig || !src) { return; }
+      var img = document.createElement("img");
+      img.src = src;
+      img.alt = alt;
+      img.loading = "eager";
+      img.decoding = "async";
+      fig.innerHTML = "";
+      fig.appendChild(img);
+      if (figId === "coach-photo") { fig.classList.add("has-photo"); }
+    }
+    placePhoto("hero-visual", HERO_PHOTO, "Foto sesi public speaking");
+    placePhoto("coach-photo", COACH_PHOTO, "Foto " + COACH_NAME);
+
+    // ---- Menu mobile ----
+    var btn = document.querySelector(".menu-btn");
+    var menu = document.getElementById("nav-menu");
+    function setMenu(open) {
+      menu.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Tutup" : "Menu";
+    }
+    btn.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
+    menu.addEventListener("click", function (e) {
+      if (e.target.closest("a")) { setMenu(false); }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) { setMenu(false); btn.focus(); }
+    });
+  })();
+</script>
+</body>
+</html>
