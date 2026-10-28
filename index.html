@@ -290,6 +290,20 @@ var COACH_PHOTO = "coach photo-file-foto-coach.jpeg.jpeg";
   .coach-photo.has-photo { aspect-ratio: auto; max-width: 340px; background: transparent; }
   .coach-photo.has-photo img { position: static; display: block; width: 100%; height: auto; object-fit: contain; }
   .about-copy > p:first-child { font-size: 1.125rem; }
+     .coach-intro p {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.coach-intro p::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+  flex: none;
+  margin-top: 7px;
+}
   .coach-card { margin-top: 32px; padding-top: 16px; border-top: 2px solid var(--black); }
   .coach-card .name { font-size: 1.5rem; font-weight: 700; letter-spacing: -.01em; }
   .coach-card .role { color: var(--muted); font-size: .9375rem; }
